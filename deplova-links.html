@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deplova — Links</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --font-display: 'EB Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --font-mono:    'DM Sans', system-ui, sans-serif;
+      --bg-base: #0a0c0f; --bg-surface:#0f1216; --bg-raised:#141820; --bg-hover:#1c2230;
+      --border-subtle: rgba(255,255,255,.06); --border-mid: rgba(255,255,255,.10);
+      --text-primary:#f0f2f5; --text-secondary:#8b95a3; --text-muted:#4a5568;
+      --accent:#35B0CD; --accent-dim: rgba(53,176,205,.10);
+      --container-max: 800px;
+      --radius-md:10px; --radius-lg:14px;
+      --space-4:16px; --space-6:24px; --space-8:32px;
+      --text-sm:.875rem; --text-base:1rem; --text-lg:1.125rem; --text-xl:1.25rem;
+    }
+    body { 
+      background: var(--bg-base); 
+      color: var(--text-primary); 
+      font-family: var(--font-body); 
+      line-height: 1.6; 
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow-x: hidden;
+    }
+    
+    .cover-canvas { 
+      position: fixed; 
+      top: 0; 
+      left: 0; 
+      width: 100%; 
+      height: 100%; 
+      z-index: 1; 
+      pointer-events: none; 
+      opacity: .6; 
+    }
+
+    .content-wrapper {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: var(--container-max);
+      padding: var(--space-8) var(--space-6);
+      text-align: center;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.15;
+      margin-bottom: var(--space-4);
+    }
+
+    .brand-logo {
+      height: 48px;
+      margin-bottom: var(--space-4);
+    }
+
+    .brand-subtitle {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      font-weight: 300;
+      margin-bottom: var(--space-8);
+    }
+
+    .links-grid {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(20, 24, 32, 0.7);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border-mid);
+      border-radius: var(--radius-md);
+      padding: var(--space-4) var(--space-6);
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: all 0.3s ease;
+    }
+
+    .link-card:hover {
+      background: var(--bg-hover);
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    }
+
+    .link-card__title {
+      font-size: var(--text-lg);
+      font-weight: 500;
+    }
+
+    .link-card__icon {
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+
+    .link-card:hover .link-card__icon {
+      color: var(--accent);
+    }
+
+    @media(max-width:768px){
+      .content-wrapper { padding: var(--space-6) var(--space-4); }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="gov-cover-canvas" class="cover-canvas"></canvas>
+
+  <div class="content-wrapper">
+    <img src="site/img/deplova-logo.svg" alt="Deplova" class="brand-logo">
+    <p class="brand-subtitle">Acesso rápido aos principais materiais e demonstrações.</p>
+
+    <div class="links-grid">
+      <a href="pitch-deck-tech.html" class="link-card">
+        <span class="link-card__title">Pitch Deck (Tech)</span>
+        <span class="link-card__icon">→</span>
+      </a>
+      
+      <a href="pitch-governance.html" class="link-card">
+        <span class="link-card__title">Pitch Deck (Governança)</span>
+        <span class="link-card__icon">→</span>
+      </a>
+
+      <a href="#" class="link-card">
+        <span class="link-card__title">Brand guide</span>
+        <span class="link-card__icon">→</span>
+      </a>
+
+      <a href="index.html" class="link-card">
+        <span class="link-card__title">Website</span>
+        <span class="link-card__icon">→</span>
+      </a>
+
+      <a href="pipeline/bat-pipeline.html" class="link-card">
+        <span class="link-card__title">Pipeline demo</span>
+        <span class="link-card__icon">→</span>
+      </a>
+
+      <a href="pipeline/pipeline.html" class="link-card">
+        <span class="link-card__title">Pipeline docs</span>
+        <span class="link-card__icon">→</span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const govCanvas = document.getElementById('gov-cover-canvas');
+    const gctx = govCanvas.getContext('2d');
+    let GW, GH, CELL, cols, rows, R_INNER, R_OUTER;
+    function gres() {
+      GW = govCanvas.width = window.innerWidth;
+      GH = govCanvas.height = window.innerHeight;
+      CELL = Math.max(32, Math.min(64, Math.floor(GW / 24)));
+      cols = Math.ceil(GW / CELL) + 2;
+      rows = Math.ceil(GH / CELL) + 2;
+      const m = Math.min(GW, GH);
+      R_INNER = m * 0.32;
+      R_OUTER = m * 0.78;
+    }
+    gres();
+    window.addEventListener('resize', gres);
+    const gridColor = 'rgba(53,176,205,0.12)';
+    const strutColor = 'rgba(53,176,205,0.45)';
+    const dimNodeColor = 'rgba(61,214,140,0.18)';
+    const struts = Array.from({ length: 48 }, () => ({
+      v: Math.random() < .5,
+      i: 0, j: 0, len: 0, life: 0, max: 70 + Math.random() * 90
+    }));
+    const nodes = Array.from({ length: 36 }, () => ({
+      i: 0, j: 0, life: 0, max: 50 + Math.random() * 70
+    }));
+    function resetStrut(s) {
+      s.v = Math.random() < .5;
+      s.i = Math.floor(Math.random() * cols);
+      s.j = Math.floor(Math.random() * rows);
+      s.len = 1 + Math.floor(Math.random() * 4);
+      s.life = 0;
+      s.max = 50 + Math.random() * 100;
+    }
+    function resetNode(n) {
+      n.i = Math.floor(Math.random() * cols);
+      n.j = Math.floor(Math.random() * rows);
+      n.life = 0;
+      n.max = 40 + Math.random() * 80;
+    }
+    struts.forEach(resetStrut);
+    nodes.forEach(resetNode);
+    function drawGrid() {
+      gctx.strokeStyle = gridColor;
+      gctx.lineWidth = 1;
+      gctx.beginPath();
+      for (let i = -1; i < cols; i++) {
+        const x = i * CELL + (GW % CELL) * .5;
+        gctx.moveTo(x, 0);
+        gctx.lineTo(x, GH);
+      }
+      for (let j = -1; j < rows; j++) {
+        const y = j * CELL + (GH % CELL) * .5;
+        gctx.moveTo(0, y);
+        gctx.lineTo(GW, y);
+      }
+      gctx.stroke();
+    }
+    function wAt(x, y) {
+      const cx = GW * 0.5, cy = GH * 0.5;
+      const dx = x - cx, dy = y - cy;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      let t = (d - R_INNER) / (R_OUTER - R_INNER);
+      if (t < 0) t = 0; else if (t > 1) t = 1;
+      return t * t * (3 - 2 * t);
+    }
+    function drawStruts() {
+      gctx.strokeStyle = strutColor;
+      gctx.lineWidth = 1.5;
+      struts.forEach(s => {
+        s.life += 1.35;
+        if (s.life > s.max) resetStrut(s);
+        const p = s.life / s.max;
+        const al = p < .5 ? p * 2 : (1 - p) * 2;
+        const x0 = s.i * CELL + (GW % CELL) * .5;
+        const y0 = s.j * CELL + (GH % CELL) * .5;
+        if (s.v) {
+          const y1 = y0 + s.len * CELL;
+          const mx = x0, my = y0 + (y1 - y0) * .5;
+          const w = wAt(mx, my);
+          const baseA = (0.15 + al * 0.5) * (0.12 + 0.88 * w);
+          gctx.strokeStyle = `rgba(53,176,205,${baseA})`;
+          gctx.beginPath();
+          gctx.moveTo(x0, y0);
+          gctx.lineTo(x0, y1);
+          gctx.stroke();
+          const head = (s.life / s.max) * s.len * CELL;
+          const seg = Math.max(CELL * .8, CELL * 1.1);
+          const yh0 = Math.max(y0, y0 + head - seg * .5);
+          const yh1 = Math.min(y1, y0 + head + seg * .5);
+          gctx.save();
+          gctx.lineWidth = 3.2;
+          gctx.shadowBlur = 10;
+          gctx.shadowColor = 'rgba(53,176,205,0.6)';
+          gctx.strokeStyle = `rgba(53,176,205,${(0.35 + al * 0.45) * (0.16 + 0.84 * w)})`;
+          gctx.beginPath();
+          gctx.moveTo(x0, yh0);
+          gctx.lineTo(x0, yh1);
+          gctx.stroke();
+          gctx.restore();
+        } else {
+          const x1 = x0 + s.len * CELL;
+          const mx = x0 + (x1 - x0) * .5, my = y0;
+          const w = wAt(mx, my);
+          const baseA = (0.15 + al * 0.5) * (0.12 + 0.88 * w);
+          gctx.strokeStyle = `rgba(53,176,205,${baseA})`;
+          gctx.beginPath();
+          gctx.moveTo(x0, y0);
+          gctx.lineTo(x1, y0);
+          gctx.stroke();
+          const head = (s.life / s.max) * s.len * CELL;
+          const seg = Math.max(CELL * .8, CELL * 1.1);
+          const xh0 = Math.max(x0, x0 + head - seg * .5);
+          const xh1 = Math.min(x1, x0 + head + seg * .5);
+          gctx.save();
+          gctx.lineWidth = 3.2;
+          gctx.shadowBlur = 10;
+          gctx.shadowColor = 'rgba(53,176,205,0.6)';
+          gctx.strokeStyle = `rgba(53,176,205,${(0.35 + al * 0.45) * (0.16 + 0.84 * w)})`;
+          gctx.beginPath();
+          gctx.moveTo(xh0, y0);
+          gctx.lineTo(xh1, y0);
+          gctx.stroke();
+          gctx.restore();
+        }
+      });
+    }
+    function drawNodes() {
+      nodes.forEach(n => {
+        n.life += 1.15;
+        if (n.life > n.max) resetNode(n);
+        const p = n.life / n.max;
+        const alpha = (p < .5 ? p * 2 : (1 - p) * 2);
+        const x = n.i * CELL + (GW % CELL) * .5;
+        const y = n.j * CELL + (GH % CELL) * .5;
+        const w = wAt(x, y);
+        gctx.fillStyle = dimNodeColor;
+        gctx.beginPath();
+        gctx.arc(x, y, 2, 0, Math.PI * 2);
+        gctx.fill();
+        gctx.fillStyle = `rgba(61,214,140,${alpha * .8 * (0.12 + 0.88 * w)})`;
+        gctx.beginPath();
+        gctx.arc(x, y, 3.2, 0, Math.PI * 2);
+        gctx.fill();
+      });
+    }
+    function drawCenterFade() {
+      const cx = GW * 0.5, cy = GH * 0.5;
+      const r1 = Math.min(GW, GH) * 0.34;
+      const r2 = Math.min(GW, GH) * 0.82;
+      const fade = gctx.createRadialGradient(cx, cy, r1, cx, cy, r2);
+      fade.addColorStop(0, 'rgba(10,12,15,0.78)');
+      fade.addColorStop(0.5, 'rgba(10,12,15,0.42)');
+      fade.addColorStop(1, 'rgba(10,12,15,0.0)');
+      gctx.save();
+      gctx.globalCompositeOperation = 'source-over';
+      gctx.fillStyle = fade;
+      gctx.fillRect(0, 0, GW, GH);
+      gctx.restore();
+      const glow = gctx.createRadialGradient(cx, cy, 0, cx, cy, r1 * 1.8);
+      glow.addColorStop(0, 'rgba(53,176,205,0.12)');
+      glow.addColorStop(1, 'rgba(53,176,205,0.0)');
+      gctx.save();
+      gctx.globalCompositeOperation = 'lighter';
+      gctx.fillStyle = glow;
+      gctx.fillRect(0, 0, GW, GH);
+      gctx.restore();
+    }
+    function ganim() {
+      gctx.clearRect(0, 0, GW, GH);
+      drawGrid();
+      drawStruts();
+      drawNodes();
+      drawCenterFade();
+      requestAnimationFrame(ganim);
+    }
+    ganim();
+  </script>
+</body>
+</html>
