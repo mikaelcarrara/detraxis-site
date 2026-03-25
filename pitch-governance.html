@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Deplova — Governança</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --font-display: 'EB Garamond', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+      --font-mono:    'DM Sans', system-ui, sans-serif;
+      --bg-base: #0a0c0f; --bg-surface:#0f1216; --bg-raised:#141820; --bg-hover:#1c2230;
+      --border-subtle: rgba(255,255,255,.06); --border-mid: rgba(255,255,255,.10);
+      --text-primary:#f0f2f5; --text-secondary:#8b95a3; --text-muted:#4a5568;
+      --accent:#35B0CD; --accent-dim: rgba(53,176,205,.10);
+      --green:#3dd68c; --green-dim: rgba(61,214,140,.10);
+      --indigo:#818CF8; --indigo-dim: rgba(129,140,248,.10);
+      --yellow:#F59E0B; --yellow-dim: rgba(245,158,11,.10);
+      --rose:#F575A2; --rose-dim: rgba(245,117,162,.10);
+      --container-max: 960px;
+      --radius-sm:6px; --radius-md:10px; --radius-lg:14px;
+      --space-2:8px; --space-3:12px; --space-4:16px; --space-5:20px; --space-6:24px; --space-8:32px; --space-10:40px; --space-12:48px; --space-16:64px; --space-20:80px;
+      --text-xs:.75rem; --text-sm:.875rem; --text-base:1rem; --text-lg:1.125rem; --text-xl:1.25rem; --text-2xl:1.5rem;
+    }
+    body { background: var(--bg-base); color: var(--text-primary); font-family: var(--font-body); line-height: 1.6; }
+    .pitch-nav { position: fixed; top: 50%; right: var(--space-6); transform: translateY(-50%); display: flex; flex-direction: column; gap: var(--space-3); z-index: 100; }
+    .pitch-nav__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border-mid); cursor: pointer; border: none; transition: background .25s, transform .25s; }
+    .pitch-nav__dot.active, .pitch-nav__dot:hover { background: var(--accent); transform: scale(1.4); }
+    .pitch-wrap { display: flex; flex-direction: column; }
+    .slide { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: var(--space-20) var(--space-8); border-bottom: 1px solid var(--border-subtle); }
+    .slide:nth-child(even) { background: var(--bg-surface); }
+    .slide__inner { width: 100%; max-width: var(--container-max); margin: 0 auto; }
+    .slide__number { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--text-muted); letter-spacing: .12em; text-transform: uppercase; margin-bottom: var(--space-6); }
+    .slide__label { font-family: var(--font-mono); font-size: var(--text-sm); color: var(--accent); letter-spacing: .08em; text-transform: uppercase; margin-bottom: var(--space-4); font-weight: 500; }
+    .slide__title { font-family: var(--font-display); font-size: clamp(2.25rem, 5vw, 4rem); font-weight: 500; color: var(--text-primary); line-height: 1.15; margin-bottom: var(--space-6); }
+    .slide__title em { font-style: italic; color: var(--accent); }
+    .slide__body { font-size: var(--text-lg); color: var(--text-secondary); line-height: 1.7; max-width: 680px; margin-bottom: var(--space-8); font-weight: 300; }
+    .slide__impact { font-family: var(--font-display); font-size: clamp(1.25rem, 2.2vw, 1.9rem); font-style: italic; color: var(--text-primary); border-left: 3px solid var(--accent); padding-left: var(--space-6); margin-top: var(--space-8); max-width: 720px; }
+    .pitch-bullets { list-style: none; margin: 0 0 var(--space-8); }
+    .pitch-bullets li { font-size: var(--text-base); color: var(--text-secondary); margin-bottom: 18px; font-weight: 300; }
+    .pitch-bullets li::before { content: "— "; color: var(--accent); }
+    .pitch-bullets li strong { color: var(--text-primary); font-weight: 500; }
+    .highlight-grid { display: grid; gap: var(--space-6); }
+    .highlight-box { background: var(--bg-raised); border: 1px solid var(--border-mid); border-radius: var(--radius-lg); padding: var(--space-6); }
+    .highlight-box__tag { display:inline-block; font-family:var(--font-mono); font-size: var(--text-xs); color: var(--accent); background: var(--accent-dim); border:1px solid rgba(53,176,205,.25); border-radius: var(--radius-sm); padding:2px var(--space-3); margin-bottom: var(--space-3); text-transform: uppercase; letter-spacing:.08em; font-weight:500; }
+    .highlight-box__title { font-size: var(--text-base); font-weight: 500; color: var(--text-primary); margin-bottom: var(--space-2); }
+    .highlight-box__desc { font-size: var(--text-sm); color: var(--text-secondary); line-height: 1.6; font-weight: 300; }
+    .comp-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border-mid); border-radius: var(--radius-md); overflow: hidden; }
+    .comp-table th, .comp-table td { padding: 12px 14px; border-bottom: 1px solid var(--border-subtle); font-size: var(--text-sm); }
+    .comp-table th { text-transform: uppercase; letter-spacing: .08em; font-family: var(--font-mono); font-size: var(--text-xs); color: var(--accent); background: var(--accent-dim); border-bottom: 1px solid rgba(53,176,205,.25); text-align: left; }
+    .comp-table tr:last-child td { border-bottom: none; }
+    .slide--cover { background: var(--bg-base); text-align: left; border-bottom: 1px solid var(--border-mid); position: relative; overflow: hidden; }
+    .slide--cover .slide__inner { position: relative; z-index: 2; text-align: center; display: flex; flex-direction: column; align-items: center; max-width: 840px; }
+    .slide--cover .slide__title { margin-bottom: var(--space-4); font-size: 5.4rem; }
+    .slide--cover .slide__body { max-width: 720px; }
+    .cover-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none; opacity: .6; }
+    @media(max-width:768px){ .slide{ padding: var(--space-12) var(--space-5);} .slide__title{ font-size: clamp(1.75rem, 6vw, 2.5rem);} .slide__body{ max-width: 100%; } .highlight-grid{ grid-template-columns: 1fr !important; } .pitch-nav{ display: none; } }
+  </style>
+</head>
+<body>
+  <nav class="pitch-nav" aria-label="Navegação do deck">
+    <button class="pitch-nav__dot active" data-slide="0" aria-label="Capa"></button>
+    <button class="pitch-nav__dot" data-slide="1" aria-label="Fase 3 da IA"></button>
+    <button class="pitch-nav__dot" data-slide="2" aria-label="Evolução Natural"></button>
+    <button class="pitch-nav__dot" data-slide="3" aria-label="Onde Entra a Deplova"></button>
+    <button class="pitch-nav__dot" data-slide="4" aria-label="Complemento"></button>
+    <button class="pitch-nav__dot" data-slide="5" aria-label="Conexão Direta"></button>
+    <button class="pitch-nav__dot" data-slide="6" aria-label="Tese"></button>
+    <button class="pitch-nav__dot" data-slide="7" aria-label="Fechamento"></button>
+  </nav>
+
+  <main class="pitch-wrap" id="pitch">
+    <!-- 00: CAPA -->
+    <section class="slide slide--cover" id="slide-0">
+      <canvas id="gov-cover-canvas" class="cover-canvas"></canvas>
+      <div class="slide__inner">
+        <h1 class="slide__title">A Próxima Fronteira da<br>Governança em IA</h1>
+        <p class="slide__body">Do controle de uso à governança de output. A evolução natural que complementa o Fusion e garante que a IA construa softwares seguros, padronizados e escaláveis para as corporações.</p>
+      </div>
+    </section>
+
+    <!-- 01: FASE 3 DA IA -->
+    <section class="slide" id="slide-1">
+      <div class="slide__inner">
+        <p class="slide__number">01 / 07</p>
+        <p class="slide__label">O Alicerce</p>
+        <h2 class="slide__title">O Amadurecimento da IA<br>nas Organizações</h2>
+        <p class="slide__body">A governança de uso — liderada por plataformas como o BRQ Fusion — resolveu o primeiro grande desafio corporativo: <strong>o caos na adoção.</strong></p>
+        <ul class="pitch-bullets">
+          <li><strong>Gestão & Custos:</strong> Controle de quem acessa e quanto consome</li>
+          <li><strong>Compliance:</strong> Proteção de dados sensíveis e mitigação de riscos</li>
+          <li><strong>Viabilidade:</strong> Um ambiente seguro para democratizar a IA</li>
+        </ul>
+        <blockquote class="slide__impact">O uso da IA nas empresas agora está sob controle e pronto para escalar.</blockquote>
+      </div>
+    </section>
+
+    <!-- 02: EVOLUÇÃO NATURAL -->
+    <section class="slide" id="slide-2">
+      <div class="slide__inner">
+        <p class="slide__number">02 / 07</p>
+        <p class="slide__label">O Novo Desafio</p>
+        <h2 class="slide__title">Da Interação<br>para a Construção</h2>
+        <p class="slide__body">Com o acesso democratizado, os times técnicos passaram a usar a IA não apenas para tirar dúvidas, mas para <strong>escrever e construir sistemas inteiros.</strong></p>
+        <p class="slide__body">É aqui que surge um novo risco corporativo: a <strong>dívida técnica em escala</strong>. Se a IA gera código sem supervisão arquitetural, o resultado é um software impossível de dar manutenção e repleto de vulnerabilidades silenciosas.</p>
+        <blockquote class="slide__impact">Não basta mais controlar quem usa a IA.<br>👉 É preciso governar o que a IA produz.</blockquote>
+      </div>
+    </section>
+
+    <!-- 03: ONDE ENTRA A DEPLOVA -->
+    <section class="slide" id="slide-3">
+      <div class="slide__inner">
+        <p class="slide__number">03 / 07</p>
+        <p class="slide__label">A Camada Complementar</p>
+        <h2 class="slide__title">Deplova:<br>Governança de Geração de Software</h2>
+        <p class="slide__body">A Deplova atua exatamente onde a IA assume o papel de construtora. Nós garantimos que a autonomia da máquina respeite as "regras de ouro" da engenharia da corporação.</p>
+        <div class="highlight-grid" style="grid-template-columns: repeat(3,1fr); margin-top: var(--space-8);">
+          <div class="highlight-box">
+            <span class="highlight-box__tag">Planejamento</span>
+            <div class="highlight-box__title">Intenção → Blueprint</div>
+            <p class="highlight-box__desc">Transformamos a ideia em um escopo técnico claro, auditável e blindado contra alucinações.</p>
+          </div>
+          <div class="highlight-box">
+            <span class="highlight-box__tag">Estruturação</span>
+            <div class="highlight-box__title">Blueprint → Arquitetura</div>
+            <p class="highlight-box__desc">Garantimos que a base do sistema siga os padrões rígidos de segurança e infraestrutura.</p>
+          </div>
+          <div class="highlight-box">
+            <span class="highlight-box__tag">Execução</span>
+            <div class="highlight-box__title">Arquitetura → Código</div>
+            <p class="highlight-box__desc">A IA só escreve código dentro de limites pré-aprovados, sem autonomia para quebrar o sistema.</p>
+          </div>
+        </div>
+        <div class="highlight-grid" style="grid-template-columns: repeat(3,1fr); margin-top: var(--space-6);">
+          <div class="highlight-box"><div class="highlight-box__title">Padronização</div><p class="highlight-box__desc">Código sempre com padrão "Enterprise".</p></div>
+          <div class="highlight-box"><div class="highlight-box__title">Rastreabilidade</div><p class="highlight-box__desc">Cada decisão técnica da IA é registrada.</p></div>
+          <div class="highlight-box"><div class="highlight-box__title">Longevidade</div><p class="highlight-box__desc">Sistemas fáceis de manter por equipes humanas no futuro.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 04: COMO SE COMPLEMENTAM -->
+    <section class="slide" id="slide-4">
+      <div class="slide__inner">
+        <p class="slide__number">04 / 07</p>
+        <p class="slide__label">Sinergia Perfeita</p>
+        <h2 class="slide__title">Duas Faces da Mesma Moeda</h2>
+        <table class="comp-table" style="margin-top: var(--space-6);">
+          <thead>
+            <tr>
+              <th>Dimensão</th>
+              <th>Governança de Uso (BRQ / Fusion)</th>
+              <th>Governança de Output (Deplova)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Foco de Proteção</td><td>Protege a <strong>Operação</strong> (Dados e Custos)</td><td>Protege o <strong>Produto</strong> (O Software gerado)</td></tr>
+            <tr><td>O que controla?</td><td>Acesso, consumo, prompts e políticas</td><td>Estrutura, padrões arquiteturais e código</td></tr>
+            <tr><td>Ator Principal</td><td>O colaborador usando a IA</td><td>O sistema sendo construído pela IA</td></tr>
+            <tr><td>Grande Benefício</td><td>Escalar a IA na empresa com segurança</td><td>Construir ativos digitais consistentes e duradouros</td></tr>
+            <tr><td>O Resultado</td><td><strong>IA Corporativa Controlada</strong></td><td><strong>Software Enterprise Confiável</strong></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 05: CONEXÃO DIRETA -->
+    <section class="slide" id="slide-5">
+      <div class="slide__inner">
+        <p class="slide__number">05 / 07</p>
+        <p class="slide__label">Integração</p>
+        <h2 class="slide__title">Um Fluxo de Valor<br>Ponta a Ponta</h2>
+        <p class="slide__body">As duas abordagens não competem; elas operam em sequência para formar um ecossistema blindado de IA corporativa:</p>
+        <ul class="pitch-bullets">
+          <li><strong>Governança de Uso (Fusion)</strong> → Prepara o terreno: garante que o ambiente, os acessos e os dados estejam seguros.</li>
+          <li><strong>Geração Estruturada (Deplova)</strong> → Opera a fábrica: direciona a força bruta da IA para construir software com precisão industrial.</li>
+          <li><strong>Software Consistente</strong> → A entrega final: um ativo digital de alta qualidade, pronto para o mercado.</li>
+        </ul>
+        <blockquote class="slide__impact">O Fusion protege a empresa no uso da IA.<br>👉 A Deplova protege o software gerado por ela.</blockquote>
+      </div>
+    </section>
+
+    <!-- 06: TESE -->
+    <section class="slide" id="slide-6">
+      <div class="slide__inner">
+        <p class="slide__number">06 / 07</p>
+        <p class="slide__label">A Tese de Investimento</p>
+        <h2 class="slide__title">O Novo Padrão da Engenharia</h2>
+        <p class="slide__body">A Deplova é a tese de investimento que captura a próxima onda: transformar a incerteza e o risco da geração livre de código por IA em um processo de engenharia determinístico, seguro e de alto valor agregado.</p>
+        <blockquote class="slide__impact">“Governar o uso da IA viabiliza a adoção corporativa.<br>Governar o output garante a longevidade e o valor do ativo digital.”</blockquote>
+      </div>
+    </section>
+
+    <!-- 07: FECHAMENTO -->
+    <section class="slide" id="slide-7">
+      <div class="slide__inner">
+        <p class="slide__number">07 / 07</p>
+        <p class="slide__label">Fechamento</p>
+        <h2 class="slide__title">Expansão, não substituição.</h2>
+        <p class="slide__body">À medida que a IA se consolida como o principal motor de produtividade nas corporações, a governança precisa cobrir todo o ciclo.</p>
+        <ul class="pitch-bullets">
+          <li>A governança de uso democratiza o acesso com responsabilidade.</li>
+          <li>A Deplova garante que o resultado final tenha padrão de excelência corporativa.</li>
+        </ul>
+        <blockquote class="slide__impact">Juntas, formam a solução definitiva para a construção de software na era da IA corporativa.</blockquote>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const govCanvas = document.getElementById('gov-cover-canvas');
+    const gctx = govCanvas.getContext('2d');
+    let GW, GH, CELL, cols, rows, R_INNER, R_OUTER;
+    function gres() {
+      GW = govCanvas.width = window.innerWidth;
+      GH = govCanvas.height = window.innerHeight;
+      CELL = Math.max(32, Math.min(64, Math.floor(GW / 24)));
+      cols = Math.ceil(GW / CELL) + 2;
+      rows = Math.ceil(GH / CELL) + 2;
+      const m = Math.min(GW, GH);
+      R_INNER = m * 0.32;
+      R_OUTER = m * 0.78;
+    }
+    gres();
+    window.addEventListener('resize', gres);
+    const gridColor = 'rgba(53,176,205,0.12)';
+    const strutColor = 'rgba(53,176,205,0.45)';
+    const nodeColor = 'rgba(61,214,140,0.55)';
+    const dimNodeColor = 'rgba(61,214,140,0.18)';
+    const struts = Array.from({ length: 48 }, () => ({
+      v: Math.random() < .5,
+      i: 0,
+      j: 0,
+      len: 0,
+      life: 0,
+      max: 70 + Math.random() * 90
+    }));
+    const nodes = Array.from({ length: 36 }, () => ({
+      i: 0, j: 0, life: 0, max: 50 + Math.random() * 70
+    }));
+    function resetStrut(s) {
+      s.v = Math.random() < .5;
+      s.i = Math.floor(Math.random() * cols);
+      s.j = Math.floor(Math.random() * rows);
+      s.len = 1 + Math.floor(Math.random() * 4);
+      s.life = 0;
+      s.max = 50 + Math.random() * 100;
+    }
+    function resetNode(n) {
+      n.i = Math.floor(Math.random() * cols);
+      n.j = Math.floor(Math.random() * rows);
+      n.life = 0;
+      n.max = 40 + Math.random() * 80;
+    }
+    struts.forEach(resetStrut);
+    nodes.forEach(resetNode);
+    function drawGrid() {
+      gctx.strokeStyle = gridColor;
+      gctx.lineWidth = 1;
+      gctx.beginPath();
+      for (let i = -1; i < cols; i++) {
+        const x = i * CELL + (GW % CELL) * .5;
+        gctx.moveTo(x, 0);
+        gctx.lineTo(x, GH);
+      }
+      for (let j = -1; j < rows; j++) {
+        const y = j * CELL + (GH % CELL) * .5;
+        gctx.moveTo(0, y);
+        gctx.lineTo(GW, y);
+      }
+      gctx.stroke();
+    }
+    function wAt(x, y) {
+      const cx = GW * 0.5, cy = GH * 0.5;
+      const dx = x - cx, dy = y - cy;
+      const d = Math.sqrt(dx*dx + dy*dy);
+      let t = (d - R_INNER) / (R_OUTER - R_INNER);
+      if (t < 0) t = 0; else if (t > 1) t = 1;
+      return t * t * (3 - 2 * t);
+    }
+    function drawStruts() {
+      gctx.strokeStyle = strutColor;
+      gctx.lineWidth = 1.5;
+      struts.forEach(s => {
+        s.life += 1.35;
+        if (s.life > s.max) resetStrut(s);
+        const p = s.life / s.max;
+        const al = p < .5 ? p * 2 : (1 - p) * 2;
+        const x0 = s.i * CELL + (GW % CELL) * .5;
+        const y0 = s.j * CELL + (GH % CELL) * .5;
+        if (s.v) {
+          const y1 = y0 + s.len * CELL;
+          const mx = x0, my = y0 + (y1 - y0) * .5;
+          const w = wAt(mx, my);
+          const baseA = (0.15 + al * 0.5) * (0.12 + 0.88 * w);
+          gctx.strokeStyle = `rgba(53,176,205,${baseA})`;
+          gctx.beginPath();
+          gctx.moveTo(x0, y0);
+          gctx.lineTo(x0, y1);
+          gctx.stroke();
+          const head = (s.life / s.max) * s.len * CELL;
+          const seg = Math.max(CELL * .8, CELL * 1.1);
+          const yh0 = Math.max(y0, y0 + head - seg * .5);
+          const yh1 = Math.min(y1, y0 + head + seg * .5);
+          gctx.save();
+          gctx.lineWidth = 3.2;
+          gctx.shadowBlur = 10;
+          gctx.shadowColor = 'rgba(53,176,205,0.6)';
+          gctx.strokeStyle = `rgba(53,176,205,${(0.35 + al * 0.45) * (0.16 + 0.84 * w)})`;
+          gctx.beginPath();
+          gctx.moveTo(x0, yh0);
+          gctx.lineTo(x0, yh1);
+          gctx.stroke();
+          gctx.restore();
+        } else {
+          const x1 = x0 + s.len * CELL;
+          const mx = x0 + (x1 - x0) * .5, my = y0;
+          const w = wAt(mx, my);
+          const baseA = (0.15 + al * 0.5) * (0.12 + 0.88 * w);
+          gctx.strokeStyle = `rgba(53,176,205,${baseA})`;
+          gctx.beginPath();
+          gctx.moveTo(x0, y0);
+          gctx.lineTo(x1, y0);
+          gctx.stroke();
+          const head = (s.life / s.max) * s.len * CELL;
+          const seg = Math.max(CELL * .8, CELL * 1.1);
+          const xh0 = Math.max(x0, x0 + head - seg * .5);
+          const xh1 = Math.min(x1, x0 + head + seg * .5);
+          gctx.save();
+          gctx.lineWidth = 3.2;
+          gctx.shadowBlur = 10;
+          gctx.shadowColor = 'rgba(53,176,205,0.6)';
+          gctx.strokeStyle = `rgba(53,176,205,${(0.35 + al * 0.45) * (0.16 + 0.84 * w)})`;
+          gctx.beginPath();
+          gctx.moveTo(xh0, y0);
+          gctx.lineTo(xh1, y0);
+          gctx.stroke();
+          gctx.restore();
+        }
+      });
+    }
+    function drawNodes() {
+      nodes.forEach(n => {
+        n.life += 1.15;
+        if (n.life > n.max) resetNode(n);
+        const p = n.life / n.max;
+        const alpha = (p < .5 ? p * 2 : (1 - p) * 2);
+        const x = n.i * CELL + (GW % CELL) * .5;
+        const y = n.j * CELL + (GH % CELL) * .5;
+        const w = wAt(x, y);
+        gctx.fillStyle = dimNodeColor;
+        gctx.beginPath();
+        gctx.arc(x, y, 2, 0, Math.PI * 2);
+        gctx.fill();
+        gctx.fillStyle = `rgba(61,214,140,${alpha * .8 * (0.12 + 0.88 * w)})`;
+        gctx.beginPath();
+        gctx.arc(x, y, 3.2, 0, Math.PI * 2);
+        gctx.fill();
+      });
+    }
+    function drawCenterFade() {
+      const cx = GW * 0.5, cy = GH * 0.5;
+      const r1 = Math.min(GW, GH) * 0.34;
+      const r2 = Math.min(GW, GH) * 0.82;
+      const fade = gctx.createRadialGradient(cx, cy, r1, cx, cy, r2);
+      fade.addColorStop(0, 'rgba(10,12,15,0.78)');
+      fade.addColorStop(0.5, 'rgba(10,12,15,0.42)');
+      fade.addColorStop(1, 'rgba(10,12,15,0.0)');
+      gctx.save();
+      gctx.globalCompositeOperation = 'source-over';
+      gctx.fillStyle = fade;
+      gctx.fillRect(0, 0, GW, GH);
+      gctx.restore();
+      const glow = gctx.createRadialGradient(cx, cy, 0, cx, cy, r1 * 1.8);
+      glow.addColorStop(0, 'rgba(53,176,205,0.12)');
+      glow.addColorStop(1, 'rgba(53,176,205,0.0)');
+      gctx.save();
+      gctx.globalCompositeOperation = 'lighter';
+      gctx.fillStyle = glow;
+      gctx.fillRect(0, 0, GW, GH);
+      gctx.restore();
+    }
+    function ganim() {
+      gctx.clearRect(0, 0, GW, GH);
+      drawGrid();
+      drawStruts();
+      drawNodes();
+      drawCenterFade();
+      requestAnimationFrame(ganim);
+    }
+    ganim();
+    const slides = document.querySelectorAll('.slide');
+    const dots   = document.querySelectorAll('.pitch-nav__dot');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const i = Array.from(slides).indexOf(e.target);
+          dots.forEach(d => d.classList.remove('active'));
+          if (dots[i]) dots[i].classList.add('active');
+        }
+      });
+    }, { threshold: .5 });
+    slides.forEach(s => obs.observe(s));
+    dots.forEach(d => d.addEventListener('click', () => {
+      slides[+d.dataset.slide]?.scrollIntoView({ behavior: 'smooth' });
+    }));
+  </script>
+</body>
+</html>
+
