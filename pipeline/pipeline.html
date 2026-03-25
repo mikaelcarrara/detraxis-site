@@ -288,7 +288,7 @@ body {
 <section class="section" id="s1">
   <div class="prompt"><span class="ph">root@deplova</span><span class="ps">:~$</span><span class="pc">chcp 65001 &amp;&amp; set ANSI &amp;&amp; verify environment</span></div>
   <div class="lbl">01 / 07 — Pre-Flight</div>
-  <h2 class="h2">Verificando<br><em>ambiente de execução.</em></h2>
+  <h2 class="h2">Verificando<br>ambiente de execução.</h2>
   <p class="body-text">Antes de qualquer step, o pipeline confirma que o ambiente está operacional. Python instalado, API Key configurada, encoding UTF-8 ativo.</p>
 
   <div class="mascot"><pre class="msc"><span class="cy">   ╭───────╮   
@@ -328,7 +328,7 @@ body {
 <section class="section" id="s2">
   <div class="prompt"><span class="ph">root@deplova</span><span class="ps">:~$</span><span class="pc">python core/sync_check.py</span></div>
   <div class="lbl">02 / 07 — Step 0 · Sync Check</div>
-  <h2 class="h2">Skeleton sincronizado<br><em>com o pipeline.</em></h2>
+  <h2 class="h2">Skeleton sincronizado<br>com o pipeline.</h2>
   <p class="body-text">Verifica sincronia entre o skeleton do projeto e os scripts do pipeline. Qualquer drift interrompe a execução imediatamente — pipeline não roda com contratos desatualizados.</p>
 
   <div class="mascot"><pre class="msc"><span class="cy">   ╭───────╮   
@@ -380,7 +380,7 @@ body {
 <section class="section" id="s3">
   <div class="prompt"><span class="ph">root@deplova</span><span class="ps">:~$</span><span class="pc">python core/bridge.py</span></div>
   <div class="lbl">03 / 07 — Step 1 · Bridge</div>
-  <h2 class="h2">Blindando<br><em>a intenção técnica.</em></h2>
+  <h2 class="h2">Blindando<br>a intenção técnica.</h2>
   <p class="body-text">O Bridge normaliza o output do Thinker em uma especificação técnica formal. Descarta HEX colors, normaliza archetype, aplica restrições de infra. Só entra no pipeline o que o skeleton consegue construir.</p>
 
   <div class="mascot"><pre class="msc"><span class="cy">   ╭───────╮   
@@ -433,7 +433,7 @@ body {
 <section class="section" id="s4">
   <div class="prompt"><span class="ph">root@deplova</span><span class="ps">:~$</span><span class="pc">python core/architect-agent/self-inferred-context.py</span></div>
   <div class="lbl">04 / 07 — Step 2 · Architect</div>
-  <h2 class="h2">Compilando<br><em>o blueprint.</em></h2>
+  <h2 class="h2">Compilando<br>o blueprint.</h2>
   <p class="body-text">O Architect lê a intenção blindada e compila o product_definition.json — o blueprint completo do produto. Páginas, rotas, componentes, capabilities, design tokens. O Architect compila — não decide.</p>
 
   <div class="mascot"><pre class="msc"><span class="cy">   ╭───────╮   
@@ -493,7 +493,7 @@ body {
 <section class="section" id="s5">
   <div class="prompt"><span class="ph">root@deplova</span><span class="ps">:~$</span><span class="pc">python core/evaluate_pipeline.py</span></div>
   <div class="lbl">05 / 07 — Step 3 · Governança + Coerência + Handoff</div>
-  <h2 class="h2">Auditoria de contrato<br><em>e compilação do handoff.</em></h2>
+  <h2 class="h2">Auditoria de contrato<br>e compilação do handoff.</h2>
   <p class="body-text">O evaluate_pipeline.py agrega três responsabilidades em sequência: auditoria de governança, verificação de coerência física e compilação do handoff final. Todos os gates precisam passar.</p>
 
   <div class="mascot"><pre class="msc"><span class="cy">   ╭───────╮   
@@ -557,7 +557,7 @@ body {
 <section class="section" id="s6">
   <div class="prompt"><span class="ph">root@deplova</span><span class="ps">:~$</span><span class="pc">echo "PIPELINE CONCLUIDO COM SUCESSO"</span></div>
   <div class="lbl">06 / 07 — Success</div>
-  <h2 class="h2">Pipeline concluído.<br><em>Handoff pronto para o Builder.</em></h2>
+  <h2 class="h2">Pipeline concluído.<br>Handoff pronto para o Builder.</h2>
   <p class="body-text">Todos os gates passaram. O <span class="cy">builder_handoff.json</span> está gerado e auditado. O Builder pode começar — Claude Code executa dentro dos slots definidos, respeitando protected zones e injection points.</p>
 
   <div class="mascot"><pre class="msc"><span class="cy">   ╭───────╮   
@@ -604,7 +604,7 @@ body {
 <section class="section" id="s7">
   <div class="prompt"><span class="ph">root@deplova</span><span class="ps">:~$</span><span class="pc">goto :error</span></div>
   <div class="lbl">07 / 07 — Error Handler</div>
-  <h2 class="h2">Pipeline interrompido.<br><em>Veja qual gate falhou.</em></h2>
+  <h2 class="h2">Pipeline interrompido.<br>Veja qual gate falhou.</h2>
   <p class="body-text">Qualquer step com <span class="err">exit code ≠ 0</span> interrompe a execução e redireciona para o handler de erro. O pipeline para completamente — nunca avança com dados corrompidos ou contratos inválidos.</p>
 
   <div class="mascot"><pre class="msc"><span class="cy">   ╭───────╮   

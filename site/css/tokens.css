@@ -46,7 +46,7 @@
   --border-subtle: var(--ink-700);
   --border-mid: var(--ink-600);
 
-  --font-display: 'EB Garamond', Georgia, serif;
+  --font-display: 'Inter', sans-serif;
   --font-mono: 'DM Sans', sans-serif;
   --font-body: 'DM Sans', sans-serif;
 

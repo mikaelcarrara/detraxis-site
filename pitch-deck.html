@@ -7,7 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="site/css/style.css">
 
@@ -88,7 +88,7 @@
     }
 
     .slide__title em {
-      font-style: italic;
+      font-style: normal;
       color: var(--accent);
     }
 
@@ -108,7 +108,7 @@
     .slide__impact {
       font-family: var(--font-display);
       font-size: clamp(1.375rem, 2.5vw, 2rem);
-      font-style: italic;
+      font-style: normal;
       color: var(--text-primary);
       border-left: 3px solid var(--accent);
       padding-left: var(--space-6);
@@ -448,7 +448,7 @@
     }
 
     .cover-tagline em {
-      font-style: italic;
+      font-style: normal;
       color: var(--accent);
     }
 
@@ -510,7 +510,7 @@
 
     .code-comment {
       color: #8b949e;
-      font-style: italic;
+      font-style: normal;
     }
 
     /* Terminal Component */
@@ -1245,8 +1245,8 @@
       <div class="slide__inner">
         <p class="slide__number">01 / 08</p>
         <p class="slide__label">O Problema</p>
-        <h1 id="s1-title" class="slide__title">O desenvolvimento artesanal é<br>o <em>gargalo da inovação.</em></h1>
-        <p class="slide__body">O custo de construir software hoje é proibitivo e o tempo de <em>time-to-market</em> é incompatível com a velocidade do mercado. Ideias morrem no "vale da morte" entre o conceito e o código.</p>
+        <h1 id="s1-title" class="slide__title">O desenvolvimento artesanal é<br>o gargalo da inovação.</h1>
+        <p class="slide__body">O custo de construir software hoje é proibitivo e o tempo de time-to-market é incompatível com a velocidade do mercado. Ideias morrem no "vale da morte" entre o conceito e o código.</p>
         <ul class="pitch-bullets">
           <li><strong>Atrasos:</strong> Meses para validar uma hipótese simples.</li>
           <li><strong>Custo:</strong> Queima de caixa com squads inflados.</li>
@@ -1453,7 +1453,7 @@
         <p class="slide__label">O Motor</p>
         <div class="grid grid-2" style="align-items: center; gap: var(--space-12);">
           <div>
-            <h2 id="s4-title" class="slide__title">Deplova Core —<br><em>o compilador de intenção.</em></h2>
+            <h2 id="s4-title" class="slide__title">Deplova Core —<br>o compilador de intenção.</h2>
             <p class="slide__body">Tratamos a geração de software como um processo de compilação em cascata. O Core orquestra dois agentes Claude distintos (Architect + Builder) para transformar a intenção do produto em um <span class="pt-doc__blueprint">Technical Blueprint</span> estruturado (<span class="product-json">product_definition.json</span>) e, a partir dele, gerar a aplicação com precisão técnica.</p>
           </div>
           <div>
@@ -1586,7 +1586,7 @@
       <div class="slide__inner">
         <p class="slide__number">05 / 08</p>
         <p class="slide__label">O Nosso Diferencial</p>
-        <h2 id="s5-title" class="slide__title">Software previsível, produto entregue<br><em>e cliente no comando.</em></h2>
+        <h2 id="s5-title" class="slide__title">Software previsível, produto entregue<br>e cliente no comando.</h2>
         <p class="slide__body">Nossa proposta foca em entrega, governança e autonomia. Não entregamos apenas código; entregamos o domínio do negócio através de sistemas de governança aplicados à produção.</p>
 
         <div class="highlight-grid" style="margin-top: var(--space-8);">
@@ -1625,7 +1625,7 @@
       <div class="slide__inner">
         <p class="slide__number">06 / 08</p>
         <p class="slide__label">Custo</p>
-        <h2 id="s6-title" class="slide__title">Operação enxuta.<br><em>Margens robustas.</em></h2>
+        <h2 id="s6-title" class="slide__title">Operação enxuta.<br>Margens robustas.</h2>
       <p class="slide__body">Modelo compute-on-demand. O custo de produção é fixo e previsível.</p>
 
         <div class="highlight-grid">
@@ -1654,7 +1654,7 @@
       <div class="slide__inner">
         <p class="slide__number">07 / 09</p>
         <p class="slide__label">Conformidade &amp; Infraestrutura</p>
-        <h2 id="s7-title" class="slide__title">Engenharia<br><em>de nível industrial.</em></h2>
+        <h2 id="s7-title" class="slide__title">Engenharia<br>de nível industrial.</h2>
         <p class="slide__body">
           A Deplova opera sobre a API de produção da Anthropic, garantindo conformidade, escalabilidade e governança de dados.
         </p>
@@ -1664,14 +1664,14 @@
             <h3 class="highlight-box__title">Uso legítimo da API</h3>
             <p class="highlight-box__desc">
               Operamos via acesso programático de desenvolvedor, pagando pelo consumo exato
-              (<em>pay-as-you-go</em>), em total conformidade com os termos comerciais da Anthropic.
+              (pay-as-you-go), em total conformidade com os termos comerciais da Anthropic.
             </p>
           </article>
 
           <article class="highlight-box">
             <h3 class="highlight-box__title">Governança</h3>
             <p class="highlight-box__desc">
-              O <code>product_definition.json</code> atua como um <em>wrapper</em> de controle:
+              O <code>product_definition.json</code> atua como um wrapper de controle:
               não apenas consumimos tokens; restringimos seu uso a um contrato técnico determinístico.
             </p>
           </article>
@@ -1691,7 +1691,7 @@
         <p class="slide__number">08 / 08</p>
         <p class="slide__label">Oportunidade e Visão</p>
         <h2 id="s8-title" class="slide__title">
-          De execução manual para <em>infraestrutura de geração de produto.</em>
+          De execução manual para infraestrutura de geração de produto.
         </h2>
       </div>
 

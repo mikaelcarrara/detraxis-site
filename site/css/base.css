@@ -74,12 +74,12 @@ strong {
 }
 
 .text-accent {
-  font-style: italic;
+  font-style: normal;
   color: var(--accent);
 }
 
 .text-accent-gradient {
-  font-style: italic;
+  font-style: normal;
   background: linear-gradient(135deg, #35B0CD, #F575A2);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

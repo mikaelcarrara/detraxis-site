@@ -6,13 +6,13 @@
   <title>Deplova — Do Caos ao Código</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --font-display: 'EB Garamond', Georgia, serif;
+      --font-display: 'Inter', sans-serif;
       --font-body:    'DM Sans', system-ui, sans-serif;
       --font-mono:    'DM Sans', system-ui, sans-serif;
 
@@ -121,7 +121,7 @@
       font-weight: 500; color: var(--text-primary);
       line-height: 1.15; margin-bottom: var(--space-6);
     }
-    .slide__title em { font-style: italic; color: var(--accent); }
+    .slide__title em { font-style: normal; color: var(--accent); }
     .slide__body {
       font-family: var(--font-body); font-size: var(--text-lg);
       color: var(--text-secondary); line-height: 1.7;
@@ -131,7 +131,7 @@
     .slide__impact {
       font-family: var(--font-display);
       font-size: clamp(1.375rem, 2.5vw, 2rem);
-      font-style: italic; color: var(--text-primary);
+      font-style: normal; color: var(--text-primary);
       border-left: 3px solid var(--accent);
       padding-left: var(--space-6); margin-top: var(--space-8);
       max-width: 700px;
@@ -156,7 +156,7 @@
       color: var(--text-primary); line-height: 1.1;
       margin-bottom: var(--space-6); font-weight: 500;
     }
-    .cover-tagline em { font-style: italic; color: var(--accent); }
+    .cover-tagline em { font-style: normal; color: var(--accent); }
     .cover-sub {
       font-family: var(--font-body); font-size: var(--text-xl);
       color: var(--text-secondary); max-width: 600px;
@@ -512,7 +512,7 @@
       font-weight: 500; color: var(--text-primary);
       line-height: 1.2; margin-bottom: var(--space-2);
     }
-    .screenshot-title em { font-style: italic; color: var(--accent); }
+    .screenshot-title em { font-style: normal; color: var(--accent); }
     .screenshot-sub {
       font-size: var(--text-sm); color: var(--text-secondary);
       font-weight: 300; margin-bottom: var(--space-8); max-width: 600px;
@@ -553,12 +553,12 @@
     <canvas id="cover-canvas" class="cover-canvas"></canvas>
     <div class="slide__inner">
       <img
-        src="https://raw.githubusercontent.com/mikaelcarrara/mikaelcarrara.github.com/717facd0f39bc100bbc2285bd33025956b8ef53d/site/img/deplova-logo.svg"
+        src="site/img/deplova-logo.svg"
         alt="Deplova" class="cover-logo"
       >
       <h1 class="cover-tagline">
         Do caos ao código.<br>
-        <em>Determinístico por design.</em>
+        Determinístico por design.
       </h1>
       <p class="cover-sub">
         Fabricamos software com determinismo e governança: do DNA do produto ao código pronto, sem alucinação e com velocidade industrial.
@@ -573,7 +573,7 @@
       <p class="slide__number">01 / 15</p>
       <p class="slide__label">A Visão</p>
       <h2 id="s1-title" class="slide__title">
-        Intenção em software.<br><em>Com garantias.</em>
+        Intenção em software.<br>Com garantias.
       </h2>
       <p class="slide__body">
         A Deplova não é um gerador de código. É uma plataforma de Engenharia de Produto Orientada por Blueprint — que garante software previsível, validado e fisicamente executável a partir de uma conversa de 60 minutos.
@@ -606,7 +606,7 @@
       <p class="slide__number">02 / 15</p>
       <p class="slide__label">O Problema</p>
       <h2 id="s2-title" class="slide__title">
-        O desenvolvimento artesanal<br>é o <em>gargalo da inovação.</em>
+        O desenvolvimento artesanal<br>é o gargalo da inovação.
       </h2>
       <div class="grid-2" style="margin-top: 50px;">
         <div>
@@ -644,7 +644,7 @@
       <p class="slide__number">03 / 15</p>
       <p class="slide__label">A Solução</p>
       <h2 id="s3-title" class="slide__title">
-        Da conversa ao MVP em 48h.<br><em>Com contratos, não com sorte.</em>
+        Da conversa ao MVP em 48h.<br>Com contratos, não com sorte.
       </h2>
       <p class="slide__body" style="max-width: 620px;">
         A Deplova transforma 60 minutos de briefing em um pipeline de compilação determinístico. Cada camada passa por validação antes de avançar. Nada é gerado sem contrato técnico aprovado.
@@ -714,7 +714,7 @@
       <p class="slide__number">04 / 15</p>
       <p class="slide__label">Como Funciona</p>
       <h2 id="s4-title" class="slide__title">
-        Arquitetura em<br><em>três camadas independentes.</em>
+        Arquitetura em<br>três camadas independentes.
       </h2>
       <p class="slide__body">
         Cada camada é especializada, auditável e ignorante das outras. Isso não é acidente — é design. A separação de preocupações é o que torna o sistema auditável e determinístico.
@@ -780,7 +780,7 @@
     <div class="slide__inner">
       <p class="slide__number">05 / 15</p>
       <p class="slide__label">Os Contratos</p>
-      <h2 id="s5c-title" class="slide__title">Quatro artefatos.<br><em>Uma cadeia inquebrável.</em></h2>
+      <h2 id="s5c-title" class="slide__title">Quatro artefatos.<br>Uma cadeia inquebrável.</h2>
       <p class="slide__body">Do briefing ao build, cada etapa produz um artefato JSON auditável que serve de contrato para a próxima.</p>
 
       <div class="highlight-grid" style="grid-template-columns: repeat(4, 1fr); margin-top: var(--space-8);">
@@ -828,7 +828,7 @@
       <p class="slide__number">06 / 15</p>
       <p class="slide__label">Governança e Segurança</p>
       <h2 id="s5-title" class="slide__title">
-        Máquina governa.<br><em>Humano corrige.</em>
+        Máquina governa.<br>Humano corrige.
       </h2>
       <p class="slide__body">
         11 camadas de validação. 10 automáticas. 2 checkpoints humanos no momento certo — antes de qualquer código. Nenhum improviso passa por aqui.
@@ -926,7 +926,7 @@
       <p class="slide__number">07 / 15</p>
       <p class="slide__label">Diferenciais Competitivos</p>
       <h2 id="s6-title" class="slide__title">
-        Não é prompt engineering.<br><em>É um compilador.</em>
+        Não é prompt engineering.<br>É um compilador.
       </h2>
       <p class="slide__body">
         A diferença entre "pedir pra IA" e a Deplova é a mesma diferença entre escrever código em texto livre e usar um compilador tipado. O compilador rejeita o que não obedece o contrato.
@@ -997,7 +997,7 @@
       <p class="slide__number">07 / 15</p>
       <p class="slide__label">Diferencial Mecânico</p>
       <h2 id="s7m-title" class="slide__title">
-        O Diferencial Mecânico:<br><em>O Handoff JSON.</em>
+        O Diferencial Mecânico:<br>O Handoff JSON.
       </h2>
       <p class="slide__body">
         Aqui explicamos por que IAs potentes falham sozinhas e como a Deplova resolve com um handoff rígido e auditável.
@@ -1028,7 +1028,7 @@
       <p class="slide__number">08 / 15</p>
       <p class="screenshot-label">O Sistema em Ação</p>
       <h2 id="s7-title" class="screenshot-title">
-        Priorização do sprint.<br><em>Features ranqueadas antes do build.</em>
+        Priorização do sprint.<br>Features ranqueadas antes do build.
       </h2>
       <p class="screenshot-sub">
         P0, P1, P2 definidos por impact score. Story points calculados. Builder só executa o que passou pelo sprint — nunca o backlog inteiro.
@@ -1046,7 +1046,7 @@
       <p class="slide__number">09 / 15</p>
       <p class="screenshot-label">O Sistema em Ação</p>
       <h2 id="s8-title" class="screenshot-title">
-        Pipeline rodando.<br><em>Cada etapa visível e rastreável.</em>
+        Pipeline rodando.<br>Cada etapa visível e rastreável.
       </h2>
       <p class="screenshot-sub">
         Log stream em tempo real — do Sync Check ao Handoff. Artefatos gerados à direita, status de cada camada à esquerda.
@@ -1063,7 +1063,7 @@
       <p class="slide__number">10 / 15</p>
       <p class="slide__label">O Produto Final</p>
       <h2 id="s9-title" class="slide__title">
-        Software real.<br><em>Arquitetura que escala.</em>
+        Software real.<br>Arquitetura que escala.
       </h2>
       <p class="slide__body">
         Entregamos um MVP funcional construído sobre uma base técnica sólida, com código limpo, repositório completo e treinamento para que o cliente continue evoluindo sem depender de nós.
@@ -1150,22 +1150,22 @@
       <p class="slide__number">10 / 15</p>
       <p class="slide__label">Unit Economics & Eficiência</p>
       <h2 id="s10-title" class="slide__title">
-        A máquina de conversão:<br><em>discovery → MVP → escala.</em>
+        A máquina de conversão.
       </h2>
 
       <div class="highlight-grid" style="grid-template-columns: repeat(3,1fr); margin-top: var(--space-10);">
         <div class="highlight-box" style="text-align:center;">
-          <div style="font-size:2rem;font-weight:500;margin-bottom:var(--space-3);">R$ 2.400</div>
+          <div style="font-size:1.5rem;font-weight:500;margin-bottom:var(--space-3);">R$ 2.400</div>
           <div class="highlight-box__title">Entrada (Discovery)</div>
           <p class="highlight-box__desc"><strong>Ponto de entrada.</strong> Transforma a dúvida do cliente em um blueprint técnico pronto.</p>
         </div>
         <div class="highlight-box" style="text-align:center;">
-          <div style="font-size:2rem;font-weight:500;margin-bottom:var(--space-3);">35% — 40%</div>
+          <div style="font-size:1.5rem;font-weight:500;margin-bottom:var(--space-3);">35% — 40%</div>
           <div class="highlight-box__title">Conversão (MVP · R$ 4.999)</div>
           <p class="highlight-box__desc">Taxa alvo após o Discovery. Com o plano validado, a execução é o passo lógico.</p>
         </div>
         <div class="highlight-box" style="text-align:center;">
-          <div style="font-size:2rem;font-weight:500;margin-bottom:var(--space-3);">US$ 5 — US$ 15</div>
+          <div style="font-size:1.5rem;font-weight:500;margin-bottom:var(--space-3);">US$ 5 — US$ 15</div>
           <div class="highlight-box__title">Custo de Build (IA)</div>
           <p class="highlight-box__desc">Custo direto de tokens (Anthropic/Claude) para processar o pipeline completo.</p>
         </div>
@@ -1227,7 +1227,7 @@
       <p class="slide__number">13 / 15</p>
       <p class="slide__label">Visão e Roadmap</p>
       <h2 id="s12-title" class="slide__title">
-        De execução manual para<br><em>infraestrutura de geração de produto.</em>
+        De execução manual para<br>infraestrutura de geração de produto.
       </h2>
       <p class="slide__body">
         Cada fase consolida uma garantia — da validação do core até a escala como plataforma.
@@ -1273,7 +1273,7 @@
   <section class="slide slide--cta" id="slide-13" aria-labelledby="s13-title">
     <div class="slide__inner">
       <img
-        src="https://raw.githubusercontent.com/mikaelcarrara/mikaelcarrara.github.com/717facd0f39bc100bbc2285bd33025956b8ef53d/site/img/deplova-logo.svg"
+        src="site/img/deplova-logo.svg"
         alt="Deplova" style="width:140px;margin-bottom:var(--space-10);opacity:.85;"
       >
       <h2 id="s13-title" class="slide__title" style="margin-bottom:var(--space-4);">
@@ -1282,7 +1282,7 @@
       <p style="font-family:var(--font-body);font-size:var(--text-lg);color:var(--text-secondary);max-width:480px;font-weight:300;margin-bottom:var(--space-10);">
         Um briefing de 60 minutos. Dois dias de build. Aplicação funcionando, código nas suas mãos, governança em cada linha.
       </p>
-      <a href="/" class="btn btn--primary">
+      <a href="index.html" class="btn btn--primary">
         Website Deplova →
       </a>
       <h4 style="margin-top:var(--space-16);font-family:var(--font-body);font-weight:500;color:var(--text-primary);">Mikael Carrara</h4>
