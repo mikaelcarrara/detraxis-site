@@ -27,7 +27,7 @@
 }
 
 .brand-logo {
-  height: 48px;
+  height: 35px;
   margin: 0 auto var(--space-4);
 }
 
@@ -52,22 +52,19 @@
   justify-content: space-between;
   padding: var(--space-4) var(--space-6);
   background: color-mix(in srgb, var(--bg-raised) 72%, transparent);
-  backdrop-filter: blur(10px);
   border: 1px solid var(--border-mid);
-  border-radius: var(--radius-md);
   color: var(--text-primary);
-  transition:
-    background var(--duration-base) var(--ease-out),
-    border-color var(--duration-base) var(--ease-out),
-    transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out);
+  transition: background var(--duration-base) var(--ease-out),
+              border-color var(--duration-base) var(--ease-out),
+              transform var(--duration-base) var(--ease-out),
+              box-shadow var(--duration-base) var(--ease-out);
 }
 
 .link-card:hover {
   background: var(--bg-hover);
   border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
 .link-card__title {
@@ -85,7 +82,5 @@
 }
 
 @media (max-width: 768px) {
-  .content-wrapper {
-    padding: var(--space-6) var(--space-4);
-  }
+  .content-wrapper { padding: var(--space-6) var(--space-4); }
 }

@@ -18,48 +18,35 @@
     <p class="brand-subtitle">Principais materiais e demonstrações.</p>
 
     <div class="links-grid">
-
-      <a href="/" class="link-card">
+      <a href="index.html" class="link-card">
         <span class="link-card__title">Website</span>
         <span class="link-card__icon">→</span>
       </a>
-
-      <a href="pitch-deck-tech" class="link-card">
+      <a href="pitch-deck-tech.html" class="link-card">
         <span class="link-card__title">Pitch Deck (Tech)</span>
         <span class="link-card__icon">→</span>
       </a>
-      
-      <a href="pitch-governance" class="link-card" style="display: none;">
-        <span class="link-card__title">Pitch Deck (Governança)</span>
-        <span class="link-card__icon">→</span>
-      </a>
-
-      <a href="brand-guide" class="link-card">
+      <a href="brand-guide.html" class="link-card">
         <span class="link-card__title">Brand guide</span>
         <span class="link-card__icon">→</span>
       </a>
-
-      <a href="pipeline/deplova-operator" class="link-card">
+      <a href="pipeline/deplova-operator.html" class="link-card">
         <span class="link-card__title">[DEMO] Pipeline oficial</span>
         <span class="link-card__icon">→</span>
       </a>
-
-      <a href="pipeline/bat-pipeline" class="link-card">
-        <span class="link-card__title">[DEMO] Pipeline (customizado)</span>
+      <a href="pipeline/bat-pipeline.html" class="link-card">
+        <span class="link-card__title">[DEMO] Pipeline customizado</span>
         <span class="link-card__icon">→</span>
       </a>
-
-      <a href="pipeline/pipeline" class="link-card">
-        <span class="link-card__title">Pipeline docs (customizado)</span>
+      <a href="pipeline/pipeline.html" class="link-card">
+        <span class="link-card__title">Pipeline docs</span>
         <span class="link-card__icon">→</span>
       </a>
-
       <a href="https://github.com/mikaelcarrara/deplova" class="link-card">
-        <span class="link-card__title">Repos privado com o Core</span>
+        <span class="link-card__title">[PRIVADO] Repositório (GitHub)</span>
         <span class="link-card__icon">→</span>
       </a>
-
-      <a href="/benchmark" class="link-card">
+      <a href="benchmark.html" class="link-card">
         <span class="link-card__title">[DRAFT] Benchmark técnico</span>
         <span class="link-card__icon">→</span>
       </a>
@@ -84,10 +71,15 @@
     window.addEventListener('resize', gres);
     const gridColor = 'rgba(53,176,205,0.12)';
     const strutColor = 'rgba(53,176,205,0.45)';
+    const nodeColor = 'rgba(61,214,140,0.55)';
     const dimNodeColor = 'rgba(61,214,140,0.18)';
     const struts = Array.from({ length: 48 }, () => ({
       v: Math.random() < .5,
-      i: 0, j: 0, len: 0, life: 0, max: 70 + Math.random() * 90
+      i: 0,
+      j: 0,
+      len: 0,
+      life: 0,
+      max: 70 + Math.random() * 90
     }));
     const nodes = Array.from({ length: 36 }, () => ({
       i: 0, j: 0, life: 0, max: 50 + Math.random() * 70
@@ -243,6 +235,22 @@
       requestAnimationFrame(ganim);
     }
     ganim();
+    const slides = document.querySelectorAll('.slide');
+    const dots   = document.querySelectorAll('.pitch-nav__dot');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const i = Array.from(slides).indexOf(e.target);
+          dots.forEach(d => d.classList.remove('active'));
+          if (dots[i]) dots[i].classList.add('active');
+        }
+      });
+    }, { threshold: .5 });
+    slides.forEach(s => obs.observe(s));
+    dots.forEach(d => d.addEventListener('click', () => {
+      slides[+d.dataset.slide]?.scrollIntoView({ behavior: 'smooth' });
+    }));
   </script>
+
 </body>
 </html>
