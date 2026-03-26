@@ -2,10 +2,20 @@
   padding: var(--space-24) 0 var(--space-32) 0;
   background-color: var(--bg-surface);
   text-align: center;
+  position: relative;
 }
 
 .final-cta .desc {
   max-width: 700px;
   margin: auto;
   margin-top: var(--space-16);
+}
+
+.hero-glow {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 500px;
+  background: radial-gradient(ellipse, rgba(53,176,205,.07) 0%, transparent 65%);
+  pointer-events: none;
 }

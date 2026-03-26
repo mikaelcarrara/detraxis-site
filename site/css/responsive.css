@@ -2,6 +2,31 @@
    RESPONSIVE
    ============================================================ */
 @media (max-width: 1024px) {
+  .section {
+    padding-block: var(--space-24);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-12);
+  }
+
+  .hero {
+    padding-top: 136px;
+    padding-bottom: var(--space-24);
+  }
+
+  .hero__sub {
+    max-width: 100%;
+  }
+
+  .grid-2 {
+    --grid-gap: var(--space-10);
+  }
+
+  .timeline {
+    margin-left: 0;
+  }
+
   .hero__bg-num {
     display: none;
   }
@@ -11,9 +36,128 @@
   }
 }
 
+@media (max-width: 768px) {
+  .container {
+    padding-inline: var(--space-6);
+  }
+
+  .section {
+    padding-block: var(--space-20);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-10);
+  }
+
+  .desc {
+    font-size: var(--text-base);
+    line-height: 1.65;
+  }
+
+  .timeline::before {
+    left: 20px;
+  }
+
+  .timeline-step {
+    grid-template-columns: 40px 1fr;
+    gap: var(--space-4);
+    padding-block: var(--space-5);
+  }
+
+  .demo-window__bar {
+    padding: var(--space-3);
+  }
+
+  .demo-window__url {
+    margin-left: var(--space-2);
+    font-size: 11px;
+  }
+
+  .demo-window__footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+
+  .content-card {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  #entregaveis .content-card__icon,
+  #para-quem .content-card > img:first-child {
+    margin-left: calc(var(--space-5) * -1);
+    margin-right: calc(var(--space-5) * -1);
+    width: calc(100% + (var(--space-5) * 2));
+  }
+
+  #para-quem .content-card > img:first-child {
+    margin-top: calc(var(--space-6) * -1);
+  }
+
+  .plan-card {
+    padding: var(--space-8) var(--space-6);
+    gap: var(--space-5);
+  }
+
+  .plan-card__amount {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+
+  .final-cta {
+    padding: var(--space-20) 0;
+  }
+
+  .final-cta .desc {
+    margin-top: var(--space-10);
+  }
+}
+
 @media (max-width: 640px) {
   .container {
     padding-inline: var(--space-5);
+  }
+
+  .section {
+    padding-block: var(--space-16);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .timeline-step__title {
+    font-size: var(--text-lg);
+  }
+
+  .timeline-step__desc {
+    font-size: var(--text-xs);
+  }
+
+  .demo-window__body {
+    padding: var(--space-4);
+  }
+
+  .demo-window__url {
+    max-width: 68vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .plan-card {
+    padding: var(--space-6) var(--space-5);
+  }
+
+  .plan-card__amount {
+    font-size: clamp(2rem, 12vw, 2.8rem);
+  }
+
+  .final-cta {
+    padding: var(--space-16) 0;
+  }
+
+  .final-cta .desc {
+    margin-top: var(--space-8);
   }
 
   .nav__links {

@@ -12,6 +12,7 @@
     href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="site/css/style.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
   <link rel="icon" href="site/img/favicon.png" type="image/svg+xml">
 
@@ -63,13 +64,13 @@
     <section class="hero" aria-labelledby="hero-headline">
       <canvas id="bg-canvas"></canvas>
       <div class="container hero__content">
-        <h1 id="hero-headline" class="headline headline--xl hero__headline animate-fade-up">
+        <h1 id="hero-headline" class="headline headline--xl hero__headline" data-aos="fade-up">
           Do briefing ao produto.<br> Sem improvisar.
         </h1>
-        <p class="desc hero__sub animate-fade-up">
+        <p class="desc hero__sub" data-aos="fade-up" data-aos-delay="100">
           Qualquer um sobe um produto hoje. Poucos sobem um produto que aguenta crescer. Em 48 horas, você sai com um MVP funcional, backlog priorizado, código seu — e uma base que não vira reescrita na segunda feature.
         </p>
-        <div class="hero__actions animate-fade-up">
+        <div class="hero__actions" data-aos="fade-up" data-aos-delay="150">
           <a href="https://w.app/deplova" class="btn btn--primary">
             <span class="btn__inner btn__inner--hero">
               <span class="btn__text">
@@ -86,14 +87,14 @@
     <section id="como-funciona" class="section" aria-labelledby="how-headline">
       <div class="container">
         <div class="grid grid-2" style="align-items: center;">
-          <div class="section-header">
+          <div class="section-header" data-aos="fade-up">
             <p class="label">O processo</p>
-            <h2 id="how-headline" class="headline headline--lg animate-fade-up">
+            <h2 id="how-headline" class="headline headline--lg">
               Velocidade por Design
             </h2>
             <p class="desc">Cada etapa existe para eliminar incerteza antes de gerar custo. O resultado é um ciclo de build previsível, sem retrabalho e sem ambiguidade.</p>
           </div>
-          <ol class="timeline" aria-label="Etapas do processo">
+          <ol class="timeline" aria-label="Etapas do processo" data-aos="fade-up" data-aos-delay="100">
 
             <li class="timeline-step">
               <div class="timeline-step__marker" aria-hidden="true">
@@ -168,15 +169,15 @@
     <!-- PRIORIZAÇÃO -->
     <section class="section" aria-labelledby="controle-headline">
       <div class="container">
-        <div class="grid grid-2" style="align-items: center;">
-          <div class="section-header">
+        <div class="grid grid-2" style="align-items: center;" data-aos="fade-up">
+          <div class="section-header" data-aos="fade-up">
             <p class="label">Priorização</p>
-            <h2 id="controle-headline" class="headline headline--lg animate-fade-up">
+            <h2 id="controle-headline" class="headline headline--lg">
               Menos features, mais produto.
             </h2>
             <p class="desc">Cada funcionalidade recebe um score de impacto antes do build começar. O que valida o produto entra. O que cria complexidade sem retorno fica de fora. O orçamento vai para o que importa.
           </div>
-          <div class="controle__visual" aria-label="Demonstração da interface de priorização">
+          <div class="controle__visual" aria-label="Demonstração da interface de priorização" data-aos="fade-up" data-aos-delay="100">
             <div class="demo-window">
               <div class="demo-window__bar" aria-hidden="true">
                 <span class="terminal-dot terminal-dot--r"></span>
@@ -263,16 +264,16 @@
     <!-- ENTREGÁVEIS -->
     <section id="entregaveis" class="section" aria-labelledby="deliverables-headline">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <p class="label">Entregáveis</p>
-          <h2 id="deliverables-headline" class="headline headline--lg animate-fade-up">
+          <h2 id="deliverables-headline" class="headline headline--lg">
             O que você recebe ao final do projeto.
           </h2>
           <p class="desc">
             Cada projeto encerra com um produto funcional e uma base pronta para o que vem depois.
           </p>
         </div>
-        <div class="grid grid-3" role="list">
+        <div class="grid grid-3" role="list" data-aos="fade-up" data-aos-delay="50">
 
           <article class="content-card" role="listitem">
             <div class="content-card__icon">
@@ -485,13 +486,13 @@
     <!-- PARA QUEM É -->
     <section id="para-quem" class="section" aria-labelledby="persona-headline">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <p class="label">Para quem</p>
-          <h2 id="persona-headline" class="headline headline--lg animate-fade-up">
+          <h2 id="persona-headline" class="headline headline--lg">
             Para quem tem clareza sobre o problema e precisa de execução.
           </h2>
         </div>
-        <div class="grid grid-3" role="list">
+        <div class="grid grid-3" role="list" data-aos="fade-up" data-aos-delay="50">
 
           <article class="content-card" role="listitem">
             <img src="site/img/banner-01.jpg">
@@ -525,9 +526,9 @@
     <section id="planos" class="section" aria-labelledby="plans-headline" style="text-align: center;">
       <div class="container">
 
-        <div class="section-header">
+        <div class="section-header" data-aos="fade-up">
           <p class="label">Planos</p>
-          <h2 id="plans-headline" class="headline headline--lg animate-fade-up">
+          <h2 id="plans-headline" class="headline headline--lg">
             O Blueprint primeiro.<br> A execução depois.
           </h2>
           <p class="desc">
@@ -535,7 +536,7 @@
           </p>
         </div>
 
-        <div class="plans-grid grid grid-3" role="list">
+        <div class="plans-grid grid grid-3" role="list" data-aos="fade-up" data-aos-delay="50">
 
           <article class="plan-card" aria-labelledby="plan-discovery-name" role="listitem">
             <div>
@@ -634,10 +635,13 @@
     </section>
 
     <section class="section final-cta" aria-labelledby="cta-headline">
+
+      <div class="hero-glow"></div>
+
       <div class="container">
 
-          <div class="section-header">
-            <h2 id="cta-headline" class="headline headline--lg animate-fade-up">
+          <div class="section-header" data-aos="fade-up">
+            <h2 id="cta-headline" class="headline headline--lg">
               O primeiro passo é<br>uma conversa.
             </h2>
             <p class="desc">
@@ -645,7 +649,7 @@
             </p>
           </div>
 
-          <a href="https://w.app/deplova" class="btn btn--primary">
+          <a href="https://w.app/deplova" class="btn btn--primary" data-aos="fade-up" data-aos-delay="100">
             <span class="btn__inner btn__inner--hero">
               <span class="btn__text">
                 <span class="btn__title">Agendar briefing</span>
@@ -659,6 +663,15 @@
 
   </main>
 
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 700,
+      easing: 'ease-out',
+      once: true,
+      offset: 40
+    });
+  </script>
   <script src="site/js/hero.js"></script>
 
 </body>
