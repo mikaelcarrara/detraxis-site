@@ -1,0 +1,93 @@
+#main-content .container {
+  max-width: 860px;
+  padding-top: 70px;
+}
+
+.contract-meta {
+  margin-top: var(--space-4);
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+}
+
+.contract-article {
+  display: grid;
+  gap: var(--space-12);
+  margin-inline: auto;
+  margin-top: var(--space-16);
+}
+
+.contract-h2 {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-xl), 3.5vw, var(--text-3xl));
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: -30px;
+}
+
+.contract-list {
+  display: grid;
+  gap: var(--space-3);
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+.contract-list li {
+  color: var(--text-secondary);
+}
+
+.acceptance {
+  display: grid;
+  gap: var(--space-6);
+  padding: var(--space-8);
+  border: 1px solid var(--border-mid);
+  border-radius: var(--radius-md);
+  background: color-mix(in srgb, var(--bg-raised) 82%, transparent);
+}
+
+.acceptance__title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 700;
+}
+
+.acceptance__desc {
+  color: var(--text-secondary);
+}
+
+.acceptance__checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  color: var(--text-secondary);
+}
+
+.acceptance__checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--accent);
+}
+
+.acceptance__btn {
+  width: fit-content;
+}
+
+.signature {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.signature__title {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+
+.signature__desc {
+  color: var(--text-secondary);
+}
+
+.signature__link {
+  text-decoration: underline;
+  color: var(--accent);
+  transition: border-color var(--duration-fast) var(--ease-out), color var(--duration-fast) var(--ease-out);
+}

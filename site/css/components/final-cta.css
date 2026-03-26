@@ -3,6 +3,7 @@
   background-color: var(--bg-surface);
   text-align: center;
   position: relative;
+  overflow: hidden;
 }
 
 .final-cta .desc {
