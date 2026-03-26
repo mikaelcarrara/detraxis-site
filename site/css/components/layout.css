@@ -7,7 +7,6 @@
 
 .section {
   padding-block: var(--space-32);
-  border-block: 1px solid var(--border-subtle);
 }
 
 .section--tight {

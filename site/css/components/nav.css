@@ -5,7 +5,6 @@
   right: 0;
   z-index: 100;
   background: color-mix(in srgb, var(--bg-base) 80%, transparent);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-subtle);
 }

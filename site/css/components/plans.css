@@ -3,8 +3,8 @@
    ============================================================ */
 .plans-grid {
   --grid-gap: var(--space-6);
-  --grid-2-md-cols: 2;
-  max-width: 860px;
+  --grid-3-md-cols: 2;
+  max-width: none;
   margin-inline: auto;
 }
 
@@ -18,6 +18,7 @@
   border-radius: var(--radius-lg);
   position: relative;
   align-items: flex-start;
+  height: 100%;
   transition:
     border-color var(--duration-base) var(--ease-out),
     transform var(--duration-base) var(--ease-out);
@@ -92,4 +93,10 @@
   font-family: var(--font-mono);
   flex-shrink: 0;
   margin-top: 2px;
+}
+
+.plan-card__note {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: -6px;
 }
