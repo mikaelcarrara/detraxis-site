@@ -14,7 +14,6 @@
   gap: var(--space-6);
   padding: var(--space-10);
   background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
   position: relative;
   align-items: flex-start;
@@ -36,7 +35,7 @@
 }
 
 .plan-card--featured {
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   background:
     linear-gradient(var(--ink-800), var(--ink-900)) padding-box,
     linear-gradient(135deg, #35B0CD, #F575A2) border-box;

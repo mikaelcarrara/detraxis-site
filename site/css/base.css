@@ -106,3 +106,8 @@ strong {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
+.priorization,
+#para-quem {
+  background-color: #06090b;
+}

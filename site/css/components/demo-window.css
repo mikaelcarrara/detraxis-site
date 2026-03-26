@@ -7,7 +7,7 @@
   border: 1px solid var(--border-mid);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, .4);
+  box-shadow: 0 0 5px rgba(0, 0, 0, .3);
 }
 
 .demo-window__bar {
