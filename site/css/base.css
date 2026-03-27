@@ -81,7 +81,11 @@ strong {
 
 .text-accent-gradient {
   font-style: normal;
-  background: linear-gradient(135deg, #35B0CD, #F575A2);
+}
+
+.text-accent-gradient,
+.text-gradient {
+  background: var(--gradient-brand);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -99,13 +103,6 @@ strong {
   border: none;
   border-top: 1px solid var(--border-subtle);
   margin: 0;
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, #35B0CD, #F575A2);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .priorization,

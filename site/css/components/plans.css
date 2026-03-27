@@ -38,14 +38,14 @@
   border: 2px solid transparent;
   background:
     linear-gradient(var(--ink-800), var(--ink-900)) padding-box,
-    linear-gradient(135deg, #35B0CD, #F575A2) border-box;
+    var(--gradient-brand) border-box;
 }
 
 .plan-card__tag {
   position: absolute;
   top: calc(-1 * var(--space-3));
   right: var(--space-8);
-  background: linear-gradient(135deg, #35B0CD, #F575A2);
+  background: var(--gradient-brand);
   color: #fff;
   font-family: var(--font-mono);
   font-size: var(--text-xs);

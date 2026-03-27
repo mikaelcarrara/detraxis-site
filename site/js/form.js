@@ -49,11 +49,7 @@
     document.body.style.overflow = 'hidden';
     setStatus('', null);
     form.reset();
-    if (planValue) {
-      setPlan(planValue);
-    } else {
-      setPlan('');
-    }
+    setPlan(planValue || '');
     const firstInput = form.querySelector('#lead-name');
     if (firstInput) {
       firstInput.focus();
@@ -81,7 +77,8 @@
   const validateForm = () => {
     const name = form.elements.name.value.trim();
     const email = form.elements.email.value.trim();
-    const plan = planInput() ? planInput().value : '';
+    const selectedPlan = planInput();
+    const plan = selectedPlan ? selectedPlan.value : '';
 
     if (!name || !email || !plan) {
       setStatus('Preencha nome, e-mail e plano para continuar.', 'error');

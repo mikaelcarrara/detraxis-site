@@ -1,7 +1,11 @@
 :root {
-  --c4:#35B0CD; --c3:#80d4e8; --c1:#d0f0f8;
-  --r4:#F575A2; --r3:#fab0cc; --r1:#fde4ee;
-  --ink:#cbd5e1;
+  --c4: var(--cyan-500);
+  --c3: var(--cyan-300);
+  --c1: var(--cyan-100);
+  --r4: var(--rose-500);
+  --r3: var(--rose-300);
+  --r1: var(--rose-100);
+  --ink: var(--ink-100);
 }
 
 

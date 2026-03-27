@@ -26,14 +26,6 @@
   .timeline {
     margin-left: 0;
   }
-
-  .hero__bg-num {
-    display: none;
-  }
-
-  .how-intro {
-    position: static;
-  }
 }
 
 @media (max-width: 768px) {

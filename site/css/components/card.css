@@ -46,9 +46,6 @@
   align-items: flex-start;
   text-align: left;
   height: 100%;
-}
-
-#para-quem .content-card {
   position: relative;
   overflow: hidden;
 }

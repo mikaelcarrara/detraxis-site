@@ -99,7 +99,7 @@
   border: 1px solid transparent;
   background:
     linear-gradient(var(--ink-800), var(--ink-900)) padding-box,
-    linear-gradient(135deg, #35B0CD, #F575A2) border-box;
+    var(--gradient-brand) border-box;
 }
 
 .selectable-card input {

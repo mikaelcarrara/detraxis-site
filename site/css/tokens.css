@@ -42,6 +42,8 @@
 
   --primary: var(--rose-500);
   --primary-bright: var(--rose-400);
+  --gradient-brand: linear-gradient(135deg, #35B0CD, #F575A2);
+  --gradient-brand-hover: linear-gradient(135deg, #4dc0db, #f788b0);
 
   --border-subtle: var(--ink-700);
   --border-mid: var(--ink-600);
