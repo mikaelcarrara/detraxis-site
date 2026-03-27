@@ -1,0 +1,71 @@
+/* ============================================================
+   COOKIE CONSENT — Isolado, leve e alinhado ao DS
+   ============================================================ */
+.cookie-consent {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 1100;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+}
+
+.cookie-consent__bar {
+  width: calc(100% - (var(--space-4) * 2));
+  max-width: var(--container-max);
+  margin: var(--space-4);
+  padding: var(--space-4) var(--space-6);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .35);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  pointer-events: auto;
+  transform: translateY(10px);
+  opacity: 0;
+  transition:
+    opacity var(--duration-base) var(--ease-out),
+    transform var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.cookie-consent__bar.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.cookie-consent__text {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.cookie-consent__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+/* Borda branca apenas para o botão Aceitar dentro do widget */
+.cookie-consent [data-cc-accept].btn--primary {
+  background: #fff;
+}
+.cookie-consent [data-cc-accept].btn--primary:hover {
+  background: #fff;
+}
+
+@media (max-width: 768px) {
+  .cookie-consent__bar {
+    width: calc(100% - (var(--space-3) * 2));
+    margin: var(--space-3);
+    padding: var(--space-3) var(--space-4);
+    gap: var(--space-4);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
