@@ -92,7 +92,6 @@ jspm_packages/
 .stylelintcache
 .node_repl_history
 *velocity.log*
-package-lock.json
 yarn.lock
 pnpm-lock.yaml
 bun.lockb
