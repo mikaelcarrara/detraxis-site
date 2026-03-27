@@ -1,0 +1,53 @@
+/* ============================================================
+   OPEN SOURCE — Projetos apoiados
+   ============================================================ */
+.open-support {
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.open-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .6;
+}
+
+.open-grid {
+  --grid-gap: var(--space-10);
+  align-items: start;
+}
+
+.open-item {
+  display: grid;
+  gap: var(--space-3);
+  text-decoration: none;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 2;
+}
+
+.open-item img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-mid);
+  filter: grayscale(10%);
+  opacity: .95;
+}
+
+.open-name {
+  font-size: var(--text-base);
+  font-weight: 500;
+}
+
+.open-desc {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
