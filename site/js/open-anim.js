@@ -20,12 +20,14 @@
   resize();
   window.addEventListener('resize', resize);
 
-  const gridColor = 'rgba(53,176,205,0.12)';
-  const strutColor = 'rgba(53,176,205,0.45)';
-  const nodeColor = 'rgba(61,214,140,0.55)';
-  const dimNodeColor = 'rgba(61,214,140,0.18)';
+  const gridColor = 'rgba(53,176,205,0.08)';
+  const strutColor = 'rgba(53,176,205,0.35)';
+  const NODE_RGB = [
+    [247, 136, 176], // #f788b0
+    [77, 192, 219]   // #4dc0db
+  ];
 
-  const struts = Array.from({ length: 36 }, () => ({
+  const struts = Array.from({ length: 28 }, () => ({
     v: Math.random() < .5,
     i: 0,
     j: 0,
@@ -33,8 +35,8 @@
     life: 0,
     max: 70 + Math.random() * 90
   }));
-  const nodes = Array.from({ length: 28 }, () => ({
-    i: 0, j: 0, life: 0, max: 50 + Math.random() * 70
+  const nodes = Array.from({ length: 22 }, () => ({
+    i: 0, j: 0, life: 0, max: 50 + Math.random() * 70, c: Math.floor(Math.random() * NODE_RGB.length)
   }));
 
   function resetStrut(s) {
@@ -123,11 +125,12 @@
       const x = n.i * CELL + (W % CELL) * .5;
       const y = n.j * CELL + (H % CELL) * .5;
       const w = wAt(x, y);
-      ctx.fillStyle = dimNodeColor;
+      const rgb = NODE_RGB[n.c];
+      ctx.fillStyle = `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${0.16 * (0.12 + 0.88 * w)})`;
       ctx.beginPath();
       ctx.arc(x, y, 2, 0, Math.PI * 2);
       ctx.fill();
-      ctx.fillStyle = `rgba(61,214,140,${alpha * .8 * (0.12 + 0.88 * w)})`;
+      ctx.fillStyle = `rgba(${rgb[0]},${rgb[1]},${rgb[2]},${alpha * 0.7 * (0.12 + 0.88 * w)})`;
       ctx.beginPath();
       ctx.arc(x, y, 3.2, 0, Math.PI * 2);
       ctx.fill();

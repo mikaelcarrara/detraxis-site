@@ -15,7 +15,7 @@
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: .6;
+  opacity: .4;
 }
 
 .open-grid {
@@ -25,7 +25,7 @@
 
 .open-item {
   display: grid;
-  gap: var(--space-3);
+  gap: var(--space-4);
   text-decoration: none;
   color: var(--text-primary);
   position: relative;
@@ -36,9 +36,14 @@
   width: 100%;
   height: auto;
   border-radius: var(--radius-sm);
-  border: 1px solid var(--border-mid);
   filter: grayscale(10%);
   opacity: .95;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, .4);
+}
+
+.open-item:hover {
+  opacity: .7;
+  transition: 1.7ms;
 }
 
 .open-name {
