@@ -3,18 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deplova — Links</title>
+  <title>Detraxis — Links</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="site/css/style.css">
-  <link rel="stylesheet" href="site/css/pages/deplova-links.css">
+  <link rel="stylesheet" href="site/css/pages/detraxis-links.css">
 </head>
 <body class="links-page">
   <canvas id="gov-cover-canvas" class="cover-canvas"></canvas>
 
   <div class="content-wrapper">
-    <img src="site/img/deplova-logo.svg" alt="Deplova" class="brand-logo">
+    <img src="site/img/detraxis-logo.svg" alt="Detraxis" class="brand-logo">
     <p class="brand-subtitle">Principais materiais e demonstrações.</p>
 
     <div class="links-grid">
@@ -26,7 +26,7 @@
         <span class="link-card__title">Pitch Deck (Tech)</span>
         <span class="link-card__icon">→</span>
       </a>
-      <a href="pipeline/deplova-operator.html" class="link-card">
+      <a href="pipeline/detraxis-operator.html" class="link-card">
         <span class="link-card__title">[DEMO] Pipeline oficial</span>
         <span class="link-card__icon">→</span>
       </a>
@@ -38,7 +38,7 @@
         <span class="link-card__title">Pipeline docs</span>
         <span class="link-card__icon">→</span>
       </a>
-      <a href="https://github.com/mikaelcarrara/deplova" class="link-card">
+      <a href="https://github.com/mikaelcarrara/detraxis-site" class="link-card">
         <span class="link-card__title">[PRIVADO] Repositório (GitHub)</span>
         <span class="link-card__icon">→</span>
       </a>
@@ -235,21 +235,6 @@
       requestAnimationFrame(ganim);
     }
     ganim();
-    const slides = document.querySelectorAll('.slide');
-    const dots   = document.querySelectorAll('.pitch-nav__dot');
-    const obs = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          const i = Array.from(slides).indexOf(e.target);
-          dots.forEach(d => d.classList.remove('active'));
-          if (dots[i]) dots[i].classList.add('active');
-        }
-      });
-    }, { threshold: .5 });
-    slides.forEach(s => obs.observe(s));
-    dots.forEach(d => d.addEventListener('click', () => {
-      slides[+d.dataset.slide]?.scrollIntoView({ behavior: 'smooth' });
-    }));
   </script>
 
 </body>

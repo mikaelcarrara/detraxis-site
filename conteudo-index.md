@@ -1,4 +1,4 @@
-# Deplova
+# Detraxis
 
 ## Hero
 **Headline:** Do briefing ao produto. Sem improvisar.  
@@ -44,7 +44,7 @@ Cada projeto encerra com um produto funcional e uma base pronta para o que vem d
 - **Produto no ar**  
   A aplicação é entregue em ambiente de produção, configurada e estável. Você não precisa se preocupar com a parte de subir o produto — isso é resolvido durante o projeto.
 - **É tudo seu**  
-  Código-fonte, documentação e acessos — sem restrição. Sem dependência da Deplova para continuar. O produto é um ativo seu.
+  Código-fonte, documentação e acessos — sem restrição. Sem dependência da Detraxis para continuar. O produto é um ativo seu.
 - **Código manutenível**  
   A base segue uma estrutura documentada e previsível. Quando você for evoluir o produto — com seu time, com um freelancer ou com uma ferramenta de IA — o ponto de partida já está claro. Sem decifrar o que foi feito, sem começar do zero.
 - **Sessão de transferência**  
@@ -74,7 +74,7 @@ Para times que precisam executar iniciativas internas sem sobrecarregar o squad 
 Pague pelo resultado técnico — não por horas de desenvolvimento manual.
 
 ### Discovery — R$ 1.499
-Para quem quer clareza antes de contruir. Mapeamos o produto, priorizamos o que entra no MVP e entregamos o blueprint completo — pronto para executar com a Deplova ou com time interno.
+Para quem quer clareza antes de contruir. Mapeamos o produto, priorizamos o que entra no MVP e entregamos o blueprint completo — pronto para executar com a Detraxis ou com time interno.
 
 Itens inclusos:
 - Backlog priorizado por impacto

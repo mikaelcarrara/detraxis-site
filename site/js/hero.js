@@ -125,7 +125,7 @@ const ELEMENTS = [
         c.beginPath(); c.moveTo(35, 52); c.lineTo(35, 38);
         c.moveTo(30, 44); c.lineTo(35, 38); c.lineTo(40, 44); c.stroke();
         c.font = '500 8px monospace'; c.fillStyle = `rgba(53,176,205,${a * .85})`;
-        c.textAlign = 'center'; c.fillText('deplova.app ✓', 35, 62); c.textAlign = 'left';
+        c.textAlign = 'center'; c.fillText('detraxis.app ✓', 35, 62); c.textAlign = 'left';
     },
     (c, a) => {
         c.strokeStyle = `rgba(53,176,205,${a * .6})`; c.lineWidth = 1.2;

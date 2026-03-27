@@ -1,3 +1,3 @@
-# Deplova
+# Detraxis
 
-Website e Branding da Deplova.
+Website e Branding da Detraxis.
