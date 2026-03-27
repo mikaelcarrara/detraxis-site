@@ -84,6 +84,8 @@ aide.json
 
 # --- Node.js / Web Development ---
 node_modules/
+.cache/
+dist/
 jspm_packages/
 .npm
 .eslintcache
