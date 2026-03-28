@@ -154,13 +154,19 @@
         },
         body: JSON.stringify({
           ...payload,
+          _replyto: payload.email,
           source: window.location.href,
           _subject: `Lead Detraxis • ${payload.plan}`
         })
       });
 
-      if (!response.ok) {
-        throw new Error('request_failed');
+      let data = null;
+      try {
+        data = await response.json();
+      } catch {}
+      if (!response.ok || (data && data.ok === false)) {
+        const msg = data && data.errors && data.errors.length ? data.errors[0].message : null;
+        throw new Error(msg || 'request_failed');
       }
 
       setStatus('Obrigado pelo contato. Retornaremos em breve!', 'success');
@@ -170,7 +176,8 @@
         closeModal();
       }, 1200);
     } catch (error) {
-      setStatus('Não foi possível enviar agora. Tente novamente em instantes.', 'error');
+      const m = typeof error?.message === 'string' ? error.message : '';
+      setStatus(m || 'Não foi possível enviar agora. Tente novamente em instantes.', 'error');
     } finally {
       setLoading(false);
     }
