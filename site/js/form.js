@@ -163,7 +163,7 @@
         throw new Error('request_failed');
       }
 
-      setStatus('Recebemos seu briefing. Retornamos em breve.', 'success');
+      setStatus('Obrigado pelo contato. Retornaremos em breve!', 'success');
       form.reset();
       setPlan('');
       setTimeout(() => {
