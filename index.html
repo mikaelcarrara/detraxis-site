@@ -669,8 +669,8 @@
         <button class="modal__close" type="button" aria-label="Fechar modal" data-modal-close>×</button>
         <form class="form" id="lead-form" data-submit-endpoint="https://formspree.io/f/xlgogqeq" method="POST" novalidate>
           <div class="form__header">
-            <h2 class="form__title" id="lead-modal-title">Agende seu briefing</h2>
-            <p class="form__subtitle">Preencha seus dados para avançarmos com o plano ideal para seu projeto.</p>
+            <h2 class="form__title" id="lead-modal-title">Agendar briefing</h2>
+            <p class="form__subtitle">Preencha com seus dados e clique em enviar.</p>
           </div>
           <div class="form__group">
             <label class="form__label" for="lead-name">Nome</label>
@@ -681,27 +681,8 @@
             <input class="form__input" id="lead-email" name="email" type="email" autocomplete="email" required>
           </div>
           <div class="form__group">
-            <span class="form__label">Selecione o plano</span>
-            <div class="form__plans" role="radiogroup" aria-label="Planos disponíveis">
-              <label class="selectable-card" data-plan-card data-plan-value="Discovery + Blueprint">
-                <input type="radio" name="plan" value="Discovery + Blueprint" required>
-                <span class="selectable-card__name">Discovery + Blueprint</span>
-                <span class="selectable-card__price">R$ 1.499</span>
-                <span class="selectable-card__description">Mapeamento, backlog priorizado e blueprint pronto para execução.</span>
-              </label>
-              <label class="selectable-card" data-plan-card data-plan-value="MVP + Base Evolutiva">
-                <input type="radio" name="plan" value="MVP + Base Evolutiva" required>
-                <span class="selectable-card__name">MVP + Base Evolutiva</span>
-                <span class="selectable-card__price">R$ 4.999</span>
-                <span class="selectable-card__description">Build completo, base escalável e produto no ar.</span>
-              </label>
-              <label class="selectable-card" data-plan-card data-plan-value="Sprint - Projeto Continuado">
-                <input type="radio" name="plan" value="Sprint - Projeto Continuado" required>
-                <span class="selectable-card__name">Sprint - Projeto Continuado</span>
-                <span class="selectable-card__price">R$ 2.999</span>
-                <span class="selectable-card__description">Evolução contínua com roadmap priorizado e revisão técnica.</span>
-              </label>
-            </div>
+            <label class="form__label" for="lead-whatsapp">WhatsApp (opcional)</label>
+            <input class="form__input" id="lead-whatsapp" name="whatsapp" type="tel" autocomplete="tel" placeholder="(11) 98765-4321">
           </div>
           <div class="form__actions">
             <button class="btn btn--primary form__submit" type="submit">

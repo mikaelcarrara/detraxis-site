@@ -9,8 +9,8 @@
   const status = document.getElementById('lead-form-status');
   const submitButton = form.querySelector('.form__submit');
   const submitInner = submitButton ? submitButton.querySelector('.btn__inner') : null;
-  const planCards = Array.from(form.querySelectorAll('[data-plan-card]'));
-  const planInput = () => form.querySelector('input[name="plan"]:checked');
+  const planCards = [];
+  const planInput = () => null;
   const qsId = new URLSearchParams(window.location.search).get('form_id');
   const metaId = document.querySelector('meta[name="formspree-id"]')?.getAttribute('content') || '';
   const submitEndpoint = (() => {
@@ -79,17 +79,16 @@
       return;
     }
     submitButton.disabled = isLoading;
-    submitInner.textContent = isLoading ? 'Enviando...' : 'Solicitar briefing';
+    submitInner.textContent = isLoading ? 'Enviando...' : 'Enviar';
   };
 
   const validateForm = () => {
     const name = form.elements.name.value.trim();
     const email = form.elements.email.value.trim();
-    const selectedPlan = planInput();
-    const plan = selectedPlan ? selectedPlan.value : '';
+    const whatsapp = form.elements.whatsapp ? form.elements.whatsapp.value.trim() : '';
 
-    if (!name || !email || !plan) {
-      setStatus('Preencha nome, e-mail e plano para continuar.', 'error');
+    if (!name || !email) {
+      setStatus('Preencha nome e e-mail para continuar.', 'error');
       return null;
     }
 
@@ -99,7 +98,7 @@
       return null;
     }
 
-    return { name, email, plan };
+    return { name, email, whatsapp };
   };
 
   document.addEventListener('click', (event) => {
@@ -156,7 +155,7 @@
           ...payload,
           _replyto: payload.email,
           source: window.location.href,
-          _subject: `Lead Detraxis • ${payload.plan}`
+          _subject: `Lead Detraxis`
         })
       });
 
@@ -171,7 +170,6 @@
 
       setStatus('Obrigado pelo contato. Retornaremos em breve!', 'success');
       form.reset();
-      setPlan('');
       setTimeout(() => {
         closeModal();
       }, 1200);
