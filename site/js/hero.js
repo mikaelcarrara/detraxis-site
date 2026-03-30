@@ -302,6 +302,10 @@ let frame = 0;
 
 function tick() {
     ctx.clearRect(0, 0, W, H);
+    if (window.__detraxisModalOpen) {
+        requestAnimationFrame(tick);
+        return;
+    }
     drawGrid(frame);
     particles.forEach(p => { p.update(frame); p.render(frame); });
     frame++;

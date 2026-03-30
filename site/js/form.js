@@ -55,6 +55,7 @@
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    window.__detraxisModalOpen = true;
     setStatus('', null);
     form.reset();
     setPlan(planValue || '');
@@ -68,6 +69,7 @@
     modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
+    window.__detraxisModalOpen = false;
     setStatus('', null);
     if (activeTrigger) {
       activeTrigger.focus();

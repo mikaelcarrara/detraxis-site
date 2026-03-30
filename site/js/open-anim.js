@@ -162,6 +162,10 @@
 
   function tick() {
     ctx.clearRect(0, 0, W, H);
+    if (window.__detraxisModalOpen) {
+      requestAnimationFrame(tick);
+      return;
+    }
     drawGrid();
     drawStruts();
     drawNodes();

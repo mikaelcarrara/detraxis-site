@@ -21,7 +21,6 @@
   position: absolute;
   inset: 0;
   background: rgba(8, 12, 16, 0.76);
-  backdrop-filter: blur(4px);
 }
 
 .modal__dialog {
@@ -36,6 +35,7 @@
   box-shadow: 0 16px 36px rgba(8, 12, 16, 0.22);
   transform: translateY(20px) scale(0.98);
   opacity: 0;
+  will-change: transform, opacity;
   transition: transform var(--duration-base) var(--ease-out), opacity var(--duration-base) var(--ease-out);
 }
 
