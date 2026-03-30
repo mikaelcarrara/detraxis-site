@@ -2,7 +2,6 @@ User-agent: *
 Allow: /
 Disallow: /pitch-deck.html
 Disallow: /pitch-deck-tech.html
-Disallow: /pitch-governance.html
 Disallow: /detraxis-links.html
 Disallow: /benchmark.html
 Disallow: /brand-guide.html
