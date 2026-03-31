@@ -2,7 +2,6 @@
    OPEN SOURCE — Projetos apoiados
    ============================================================ */
 .open-support {
-  border-top: 1px solid var(--border-subtle);
   background: var(--bg-base);
   position: relative;
   overflow: hidden;
@@ -37,8 +36,6 @@
   height: auto;
   border-radius: var(--radius-sm);
   filter: grayscale(10%);
-  opacity: .95;
-  box-shadow: 0 8px 18px rgba(0, 0, 0, .4);
 }
 
 .open-item:hover {
